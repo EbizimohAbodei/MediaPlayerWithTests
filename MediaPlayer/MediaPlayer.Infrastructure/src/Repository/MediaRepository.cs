@@ -1,4 +1,5 @@
 using System;
+using MediaPlayer.Domain.src.RepositoryInterface;
 
 namespace MediaPlayer.Infrastructure.src.Repository
 {
