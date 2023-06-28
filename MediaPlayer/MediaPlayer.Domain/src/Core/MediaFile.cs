@@ -11,9 +11,11 @@ namespace MediaPlayer.Domain.src.Core
         private TimeSpan _currentPosition;
         private Timer? _timer;
 
+        public int FileId { get; }
         public string FileName { get; set; }
         public string FilePath { get; set; }
         public TimeSpan Duration { get; set; }
+        private static int _nextFileId = 1;
         public double Speed
         {
             get
@@ -38,12 +40,21 @@ namespace MediaPlayer.Domain.src.Core
 
         public MediaFile(string fileName, string filePath, TimeSpan duration, double speed)
         {
+            FileId = _nextFileId++;
             FileName = fileName;
             FilePath = filePath;
             Duration = duration;
             Speed = 1;
             _isPlaying = false;
             _currentPosition = TimeSpan.Zero;
+        }
+
+        public class ConcreteMediaFile : MediaFile
+        {
+            public ConcreteMediaFile(string fileName, string filePath, TimeSpan duration, double speed) 
+                : base(fileName, filePath, duration, speed)
+            {
+            }
         }
 
         public void Play()
