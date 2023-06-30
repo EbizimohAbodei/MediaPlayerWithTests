@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <ProjectReference Include="..\MediaPlayer.Infrastructure\MediaPlayer.Infrastructure.csproj" />
-  </ItemGroup>
+  </ItemGroup> -->
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>

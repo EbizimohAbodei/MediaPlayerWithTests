@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using MediaPlayer.Domain.src.Core;
 using MediaPlayer.Domain.src.RepositoryInterface;
 using static MediaPlayer.Domain.src.Core.MediaFile;
 
