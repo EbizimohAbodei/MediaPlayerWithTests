@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MediaPlayer.Business\MediaPlayer.Business.csproj" />
     <ProjectReference Include="..\MediaPlayer.Domain\MediaPlayer.Domain.csproj" />
+    <ProjectReference Include="..\MediaPlayer.Infrastructure\MediaPlayer.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
