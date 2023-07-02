@@ -1,7 +1,3 @@
-using System;
-using System.Linq;
-using System.Threading;
-
 namespace MediaPlayer.Domain.src.Core
 {
     public abstract class MediaFile : BaseEntity
@@ -16,6 +12,9 @@ namespace MediaPlayer.Domain.src.Core
         public string FilePath { get; set; }
         public TimeSpan Duration { get; set; }
         private static int _nextFileId = 1;
+        public bool GetIsPlayingInternal() => _isPlaying;
+        public TimeSpan GetCurrentPositionInternal() => _currentPosition;
+
         public double Speed
         {
             get

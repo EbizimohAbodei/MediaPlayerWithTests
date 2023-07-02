@@ -1,5 +1,3 @@
-using System;
-
 namespace MediaPlayer.Domain.src.Core
 {
     public class Audio : MediaFile

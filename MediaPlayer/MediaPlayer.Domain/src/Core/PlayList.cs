@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
-
 namespace MediaPlayer.Domain.src.Core
 {
     public class PlayList
     {
-        private readonly List<MediaFile> _files = new();
+        private readonly List<MediaFile> _files = new List<MediaFile>();
         private readonly int _userId;
 
         public string ListName { get; set; }
+
+        public IReadOnlyList<MediaFile> Files => _files;
 
         public PlayList(string name, int userId)
         {
@@ -38,6 +37,11 @@ namespace MediaPlayer.Domain.src.Core
         {
             if (userId == _userId) return true;
             return false;
+        }
+
+        public List<MediaFile> GetFiles()
+        {
+            return _files;
         }
     }
 }

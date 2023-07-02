@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace MediaPlayer.Domain.src.Core
 {
     public class User : BaseEntity
@@ -27,9 +24,18 @@ namespace MediaPlayer.Domain.src.Core
         public void EmptyOneList(PlayList list)
         {
             if (_lists.Contains(list))
+            {
                 list.EmptyList(GetId);
+            }
             else
+            {
                 throw new ArgumentNullException("Playlist is not found");
+            }
+        }
+
+        public List<PlayList> GetLists()
+        {
+            return _lists;
         }
     }
 }

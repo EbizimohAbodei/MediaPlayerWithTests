@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using MediaPlayer.Domain.src.RepositoryInterface;
 
 namespace MediaPlayer.Infrastructure.src.Repository
@@ -60,13 +58,39 @@ namespace MediaPlayer.Infrastructure.src.Repository
         {
             if (_playlists.ContainsKey(playListId))
             {
-                _playlists[playListId].Clear();
-                Console.WriteLine($"Emptied Playlist ID {playListId} for User ID {userId}");
+                List<int> playlist = _playlists[playListId];
+                if (playlist.Contains(fileId))
+                {
+                    playlist.Remove(fileId);
+                    Console.WriteLine($"Removed File ID {fileId} from Playlist ID {playListId} for User ID {userId}");
+                }
+                else
+                {
+                    Console.WriteLine($"File ID {fileId} does not exist in Playlist ID {playListId}");
+                }
             }
             else
             {
                 Console.WriteLine($"Playlist ID {playListId} not found");
             }
+        }
+
+        public List<int> GetPlaylist(int playListId)
+        {
+            if (_playlists.ContainsKey(playListId))
+            {
+                return _playlists[playListId];
+            }
+            else
+            {
+                Console.WriteLine($"Playlist ID {playListId} not found");
+                return new List<int>();
+            }
+        }
+
+        public bool PlaylistExists(int playListId)
+        {
+            return _playlists.ContainsKey(playListId);
         }
     }
 }
